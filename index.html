@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TrendyMen Store</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🧥 TrendyMen Store</h1>
+    <p>Toko Fashion Pria Kekinian — Baju, Jaket, dan Sepatu</p>
+    <div id="cart-status">Keranjang 🛒 (0)</div>
+  </header>
+
+  <main>
+    <section class="products">
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1618354691510-12e3b5c22d1a?auto=format&fit=crop&w=800&q=60" alt="Kemeja">
+        <h2>Kemeja Polos Putih</h2>
+        <p class="price">Rp 120.000</p>
+        <button onclick="addToCart('Kemeja Polos Putih', 120000)">Tambah ke Keranjang</button>
+      </div>
+
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=60" alt="Jaket">
+        <h2>Jaket Denim</h2>
+        <p class="price">Rp 220.000</p>
+        <button onclick="addToCart('Jaket Denim', 220000)">Tambah ke Keranjang</button>
+      </div>
+
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=800&q=60" alt="Sepatu">
+        <h2>Sneakers Pria</h2>
+        <p class="price">Rp 350.000</p>
+        <button onclick="addToCart('Sneakers Pria', 350000)">Tambah ke Keranjang</button>
+      </div>
+    </section>
+
+    <section class="cart">
+      <h2>🛒 Keranjang Belanja</h2>
+      <ul id="cart-list"></ul>
+      <div id="total">Total: Rp 0</div>
+      <button id="checkout" onclick="checkout()">Bayar Sekarang</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 TrendyMen Store. Semua Hak Dilindungi.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
