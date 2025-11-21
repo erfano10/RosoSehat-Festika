@@ -44,6 +44,7 @@ window.addEventListener('click', (e) => {
   if (e.target === registerModal) registerModal.style.display = 'none';
   if (e.target === document.getElementById('consultationModal')) document.getElementById('consultationModal').style.display = 'none';
   if (e.target === document.getElementById('historyModal')) document.getElementById('historyModal').style.display = 'none';
+  if (e.target === document.getElementById('replyModal')) document.getElementById('replyModal').style.display = 'none';
 });
 
 // Form Login
@@ -187,7 +188,7 @@ const responses = [
   }
 ];
 
-// Fungsi untuk menampilkan balasan dengan efek mengetik
+// Fungsi untuk menampilkan balasan langsung seperti chat
 function showTypingResponse(complaint, response) {
   // Simpan ke localStorage
   const savedComplaints = JSON.parse(localStorage.getItem('rosoComplaints')) || [];
@@ -201,21 +202,13 @@ function showTypingResponse(complaint, response) {
   // Tutup modal konsultasi
   document.getElementById('consultationModal').style.display = 'none';
 
-  // Tampilkan modal balasan
-  const replyModal = document.createElement('div');
-  replyModal.id = 'replyModal';
-  replyModal.className = 'modal';
-  replyModal.innerHTML = `
-    <div class="modal-content" style="max-width: 500px;">
-      <span class="close">&times;</span>
-      <h2>Rojo Sehat Menjawab...</h2>
-      <div id="typingText"></div>
-    </div>
-  `;
-  document.body.appendChild(replyModal);
+  // Tampilkan modal balasan langsung
+  const replyModal = document.getElementById('replyModal');
+  replyModal.style.display = 'flex';
 
   // Efek mengetik
   const typingText = document.getElementById('typingText');
+  typingText.innerHTML = ''; // Kosongkan dulu
   let i = 0;
   const speed = 30; // kecepatan ketik (ms per karakter)
 
@@ -231,11 +224,7 @@ function showTypingResponse(complaint, response) {
 
   // Tutup modal
   replyModal.querySelector('.close').onclick = () => {
-    replyModal.remove();
-  };
-
-  window.onclick = (e) => {
-    if (e.target === replyModal) replyModal.remove();
+    replyModal.style.display = 'none';
   };
 }
 
@@ -260,7 +249,7 @@ document.getElementById('consultationForm').addEventListener('submit', function(
     }
   }
 
-  // Tampilkan efek mengetik
+  // Tampilkan efek mengetik langsung
   showTypingResponse(complaint, response);
 });
 
